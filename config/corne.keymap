@@ -336,6 +336,7 @@
 
         default_layer {
             label = "MAIN";
+	    display-name = "Main";
             bindings = <
   &kp Q                          &kp W                      &kp E                   &kp R                              &kp T          &kp Y                     &kp U                                &kp I                    &kp O                       &kp P
   &home_row_left_gui LEFT_GUI A  &home_row_left LEFT_ALT S  &home_row_left LCTRL D  &home_row_left_shift LEFT_SHIFT F  &kp G          &kp H                     &home_row_right_shift RIGHT_SHIFT J  &home_row_right RCTRL K  &home_row_right LEFT_ALT L  &home_row_right_gui RIGHT_GUI APOSTROPHE
@@ -346,6 +347,7 @@
 
         NUM {
             label = "NUM";
+	    display-name = "Number";
             bindings = <
   &kp LEFT_BRACKET  &kp N7                            &kp N8                   &kp N9        &kp RIGHT_BRACKET    &trans      &trans           &trans     &trans            &trans
   &kp SEMI          &home_row_left LEFT_ALT NUMBER_4  &home_row_left LCTRL N5  &kp N6        &kp EQUAL            &caps_word  &kp RIGHT_SHIFT  &kp RCTRL  &kp LALT          &kp RIGHT_GUI
@@ -356,6 +358,7 @@
 
         SYM {
             label = "SYM";
+	    display-name = "Symbol";
             bindings = <
   &kp LEFT_BRACE  &kp AMPERSAND  &kp STAR              &kp LEFT_PARENTHESIS   &kp RIGHT_BRACE    &trans      &trans     &trans     &trans    &trans
   &kp COLON       &kp DOLLAR     &kp PERCENT           &kp CARET              &kp PLUS           &caps_word  &kp LSHFT  &kp LCTRL  &kp LALT  &kp RIGHT_GUI
@@ -366,6 +369,7 @@
 
         BLU {
             label = "BLU";
+	    display-name = "Bluetooth";
             bindings = <
   &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
   &bt0_to_l0    &bt1_to_l0    &bt2_to_l0    &bt3_to_l0    &bt4_to_l0      &bt0_to_l0    &bt1_to_l0    &bt2_to_l0    &bt3_to_l0    &bt4_to_l0
@@ -376,6 +380,7 @@
 
         NAV {
             label = "NAV";
+	    display-name = "Navigation";
             bindings = <
   &kp LC(A)     &trans     &trans     &trans     &trans           &kp INS  &kp HOME  &kp PAGE_UP   &kp LC(PAGE_DOWN)  &kp LC(END)
   &kp LEFT_GUI  &kp LALT   &kp LCTRL  &kp LSHFT  &kp ENTER        &trans   &kp LEFT  &kp UP_ARROW  &kp DOWN           &kp RIGHT
@@ -386,6 +391,7 @@
 
         FN {
             label = "FN";
+	    display-name = "Function";
             bindings = <
   &kp F12  &kp F7  &kp F8              &kp F9     &kp PRINTSCREEN    &trans  &trans     &trans     &trans    &trans
   &kp F11  &kp F4  &kp F5              &kp F6     &kp SCROLLLOCK     &trans  &kp RSHFT  &kp RCTRL  &kp LALT  &kp RIGHT_GUI
