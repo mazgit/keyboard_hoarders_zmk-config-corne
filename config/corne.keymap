@@ -273,6 +273,15 @@
             flavor = "hold-preferred";
         };
 
+        dash_space: dash_space {
+            compatible = "zmk,behavior-mod-morph";
+            label = "DASH_SPACE";
+            bindings = <&kp MINUS>, <&kp SPACE>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
         lt { tapping-term-ms = <200>; };
     };
 
@@ -311,6 +320,37 @@
             bindings = <&bt BT_SEL 4 &to 0>;
             label = "BT4_TO_L0";
         };
+
+        systest_pw: pw_systest {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp C &kp O &kp M &kp P &kp U &kp T &kp E &kp R &kp AT &kp N1>;
+            label = "PW_SYSTEST";
+            tap-ms = <0>;
+        };
+
+        maxlinear_pw: maxlinear_pw {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp N8 &kp N8 &kp N8 &kp N8 &kp N8 &kp N8 &kp N8 &kp N8>;
+            label = "MAXLINEAR_PW";
+            tap-ms = <0>;
+        };
+
+        guest_pw: guest_pw {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp N1 &kp N1 &kp N1 &kp N1 &kp N1 &kp N1 &kp N1 &kp N1>;
+            label = "GUEST_PW";
+            tap-ms = <0>;
+        };
+
+        user_pw: user_pw {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(G) &kp LS(I) &kp LS(V) &kp LS(E) &kp N4 &kp S &kp U &kp P &kp E &kp R &kp N &kp A &kp L &kp EXCL>;
+            label = "USER_PW";
+        };
     };
 
     combos {
@@ -337,20 +377,20 @@
         default_layer {
             label = "MAIN";
             bindings = <
-&trans  &kp Q                          &kp W                      &kp E                   &kp R                              &kp T          &kp Y                     &kp U                                &kp I                    &kp O                       &kp P                                     &trans
-&trans  &home_row_left_gui LEFT_GUI A  &home_row_left LEFT_ALT S  &home_row_left LCTRL D  &home_row_left_shift LEFT_SHIFT F  &kp G          &kp H                     &home_row_right_shift RIGHT_SHIFT J  &home_row_right RCTRL K  &home_row_right LEFT_ALT L  &home_row_right_gui RIGHT_GUI APOSTROPHE  &trans
-&trans  &kp Z                          &kp X                      &kp C                   &kp V                              &kp B          &kp N                     &kp M                                &kp COMMA                &kp DOT                     &kp FSLH                                  &trans
-                                                                  &mt SPACE TAB           &mt LEFT_ALT ESCAPE                &lt 4 SPACE    &layer_tap_right 2 ENTER  &layer_tap_right 1 BACKSPACE         &lt 5 DELETE
+&kp TAB           &kp Q                          &kp W                      &kp E                   &kp R                &kp T          &kp Y                  &kp U                         &kp I                    &kp O                       &kp P                                     &trans
+&kp LEFT_CONTROL  &home_row_left_gui LEFT_GUI A  &home_row_left LEFT_ALT S  &home_row_left LCTRL D  &kp F                &kp G          &kp H                  &kp J                         &home_row_right RCTRL K  &home_row_right LEFT_ALT L  &home_row_right_gui RIGHT_GUI APOSTROPHE  &kp RIGHT_CONTROL
+&kp LEFT_SHIFT    &kp Z                          &kp X                      &kp C                   &kp V                &kp B          &kp N                  &kp M                         &kp COMMA                &kp DOT                     &kp FSLH                                  &kp RIGHT_SHIFT
+                                                                            &mt SPACE TAB           &mt LEFT_ALT ESCAPE  &lt 4 SPACE    &mt RIGHT_SHIFT ENTER  &layer_tap_right 1 BACKSPACE  &lt 5 DELETE
             >;
         };
 
         NUM {
             label = "NUM";
             bindings = <
-&trans  &kp LEFT_BRACKET  &kp N7                            &kp N8                   &kp N9        &kp RIGHT_BRACKET    &trans      &trans           &trans     &trans            &trans         &trans
-&trans  &kp SEMI          &home_row_left LEFT_ALT NUMBER_4  &home_row_left LCTRL N5  &kp N6        &kp EQUAL            &caps_word  &kp RIGHT_SHIFT  &kp RCTRL  &kp LALT          &kp RIGHT_GUI  &trans
-&trans  &kp GRAVE         &kp N1                            &kp N2                   &kp N3        &kp BACKSLASH        &trans      &trans           &trans     &kp GREATER_THAN  &trans         &trans
-                                                            &period_para             &kp NUMBER_0  &kp MINUS            &trans      &trans           &trans
+&trans  &kp LEFT_BRACKET  &kp N7                            &kp N8                   &kp N9        &kp RIGHT_BRACKET    &kp BACKSPACE  &mo 2            &systest_pw    &maxlinear_pw     &guest_pw      &user_pw
+&trans  &kp SEMI          &home_row_left LEFT_ALT NUMBER_4  &home_row_left LCTRL N5  &kp N6        &kp EQUAL            &caps_word     &kp RIGHT_SHIFT  &kp RCTRL      &kp LALT          &kp RIGHT_GUI  &trans
+&trans  &kp GRAVE         &kp N1                            &kp N2                   &kp N3        &kp BACKSLASH        &trans         &kp SPACE        &kp LESS_THAN  &kp GREATER_THAN  &trans         &trans
+                                                            &period_para             &kp NUMBER_0  &kp MINUS            &trans         &trans           &trans
             >;
         };
 
@@ -377,10 +417,10 @@
         NAV {
             label = "NAV";
             bindings = <
-&trans  &kp LC(A)     &trans     &trans     &trans     &trans           &kp K_REDO    &kp K_PASTE  &kp K_COPY     &kp LC(K_CUT)  &kp LC(K_UNDO)  &trans
-&trans  &kp LEFT_GUI  &kp LALT   &kp LCTRL  &kp LSHFT  &kp ENTER        &kp CAPSLOCK  &kp LEFT     &kp DOWN       &kp UP_ARROW   &kp RIGHT       &trans
-&trans  &kp LC(Z)     &kp LC(X)  &kp LC(C)  &kp LC(V)  &kp BACKSPACE    &kp INS       &kp HOME     &kp PAGE_DOWN  &kp PAGE_UP    &kp END         &trans
-                                 &trans     &trans     &trans           &trans        &trans       &trans
+&trans  &kp LC(A)     &trans     &trans     &trans     &trans           &kp INS       &kp HOME  &kp PAGE_UP    &kp LC(PAGE_DOWN)  &kp LC(END)  &trans
+&trans  &kp LEFT_GUI  &kp LALT   &kp LCTRL  &kp LSHFT  &kp ENTER        &kp CAPSLOCK  &kp LEFT  &kp DOWN       &kp UP_ARROW       &kp RIGHT    &trans
+&trans  &kp LC(Z)     &kp LC(X)  &kp LC(C)  &kp LC(V)  &kp BACKSPACE    &kp INS       &kp HOME  &kp PAGE_DOWN  &kp PAGE_UP        &kp END      &trans
+                                 &trans     &trans     &trans           &trans        &trans    &trans
             >;
         };
 
@@ -391,6 +431,15 @@
 &trans  &kp F11  &kp F4  &kp F5              &kp F6     &kp SCROLLLOCK     &trans  &kp RSHFT  &kp RCTRL  &kp LALT  &kp RIGHT_GUI  &trans
 &trans  &kp F10  &kp F1  &kp F2              &kp F3     &kp PAUSE_BREAK    &trans  &trans     &trans     &trans    &trans         &trans
                          &kp K_CONTEXT_MENU  &kp SPACE  &to 3              &trans  &trans     &trans
+            >;
+        };
+
+        UPCASE {
+            bindings = <
+&trans  &kp LS(Q)  &kp LS(W)  &kp LS(E)  &kp LS(R)  &kp LS(T)    &kp LS(Y)  &kp LS(U)  &kp LS(I)  &kp LS(O)  &kp LS(P)       &trans
+&trans  &kp LS(A)  &kp LS(S)  &kp LS(D)  &kp LS(F)  &kp LS(G)    &kp LS(H)  &kp LS(J)  &kp LS(K)  &kp LS(L)  &kp APOSTROPHE  &trans
+&trans  &kp LS(Z)  &kp LS(X)  &kp LS(C)  &kp LS(V)  &kp LS(B)    &kp LS(N)  &kp LS(M)  &kp COMMA  &kp DOT    &kp FSLH        &trans
+                              &trans     &trans     &trans       &trans     &trans     &trans
             >;
         };
     };
