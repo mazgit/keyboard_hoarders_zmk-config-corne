@@ -282,6 +282,13 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
+        user_pw_tap: user_pw_tap {
+            compatible = "zmk,behavior-tap-dance";
+            label = "USER_PW_TAP";
+            #binding-cells = <0>;
+            bindings = <&user_pw1>, <&user_pw2>;
+        };
+
         lt { tapping-term-ms = <200>; };
     };
 
@@ -345,11 +352,18 @@
             tap-ms = <0>;
         };
 
-        user_pw: user_pw {
+        user_pw2: user_pw {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp LS(G) &kp LS(I) &kp LS(V) &kp LS(E) &kp N4 &kp S &kp U &kp P &kp E &kp R &kp N &kp A &kp L &kp EXCL>;
             label = "USER_PW";
+        };
+
+        user_pw1: user_pw1 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(S) &kp LS(H) &kp LS(O) &kp LS(P) &kp LS(T) &kp LS(A) &kp LS(L) &kp LS(K) &kp EXCLAMATION &kp V &kp I &kp A &kp N &kp D &kp NUMBER_2 &kp P &kp O &kp M &kp P>;
+            label = "USER_PW1";
         };
     };
 
@@ -389,7 +403,7 @@
             bindings = <
 &trans  &kp LEFT_BRACKET  &kp N7                            &kp N8                   &kp N9        &kp RIGHT_BRACKET    &kp BACKSPACE  &mo 2            &systest_pw    &maxlinear_pw     &guest_pw      &trans
 &trans  &kp SEMI          &home_row_left LEFT_ALT NUMBER_4  &home_row_left LCTRL N5  &kp N6        &kp EQUAL            &caps_word     &kp RIGHT_SHIFT  &kp RCTRL      &kp LALT          &kp RIGHT_GUI  &trans
-&trans  &kp GRAVE         &kp N1                            &kp N2                   &kp N3        &kp BACKSLASH        &user_pw       &kp SPACE        &kp LESS_THAN  &kp GREATER_THAN  &trans         &trans
+&trans  &kp GRAVE         &kp N1                            &kp N2                   &kp N3        &kp BACKSLASH        &user_pw_tap   &kp SPACE        &kp LESS_THAN  &kp GREATER_THAN  &trans         &trans
                                                             &period_para             &kp NUMBER_0  &kp MINUS            &trans         &trans           &trans
             >;
         };
