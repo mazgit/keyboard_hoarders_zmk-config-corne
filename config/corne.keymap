@@ -362,7 +362,7 @@
         user_pw1: user_pw1 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LS(S) &kp LS(H) &kp LS(O) &kp LS(P) &kp LS(T) &kp LS(A) &kp LS(L) &kp LS(K) &kp EXCLAMATION &kp V &kp I &kp A &kp N &kp D &kp NUMBER_2 &kp P &kp O &kp M &kp P>;
+            bindings = <&kp LS(S) &kp LS(H) &kp LS(O) &kp LS(P) &kp LS(T) &kp LS(A) &kp LS(L) &kp LS(K) &kp EXCLAMATION &kp V &kp I &kp A &kp N &kp D &kp NUMBER_2>;
             label = "USER_PW1";
         };
     };
